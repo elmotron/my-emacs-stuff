@@ -50,14 +50,10 @@
 ;(setq-default indent-tabs-mode nil)
 
 ;; By default, Emacs will litter auto-save and backup files all over
-;; your file system. The following will place all auto-save and backup
-;; files in your temp directory (`/tmp' for linux, `C:\Temp' for
-;; windows).
-;; WARNING: I'm pretty sure this is broken right now.
-;;(setq backup-directory-alist
-;;      `((".*" . ,temporary-file-directory)))
-;;(setq auto-save-file-name-transforms
-;;      `((".*" ,temporary-file-directory t)))
+;; your file system. This disables backup files
+;; TODO figure out how to actually make them in /tmp or something, as
+;; they might save your ass
+(setq make-backup-files nil)
 
 ;; By default, Emacs will move half a page when you move past the top
 ;; of a buffer. Setting the `scroll-margin' to 4 means that it moves
