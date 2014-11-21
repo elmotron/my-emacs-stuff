@@ -5,6 +5,9 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; Default path when doing C-x C-f
+(setq default-directory "D:/")
+
 ;; Kill buffer with ctrl+k without confirmation (unless modified)
 (global-set-key [(control x) (k)] 'kill-this-buffer)
 
@@ -54,6 +57,14 @@
 ;; TODO figure out how to actually make them in /tmp or something, as
 ;; they might save your ass
 (setq make-backup-files nil)
+
+;; Call this function to hide the annoying ^M's
+;; http://stackoverflow.com/questions/730751/hiding-m-in-emacs
+(defun remove-dos-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
 
 ;; By default, Emacs will move half a page when you move past the top
 ;; of a buffer. Setting the `scroll-margin' to 4 means that it moves
